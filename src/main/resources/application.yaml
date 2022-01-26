@@ -1,0 +1,42 @@
+spring:
+  cloud:
+    azure:
+      eventhub:
+        connection-string: Endpoint=sb://cdcpoctest.servicebus.windows.net/;SharedAccessKeyName=cdc;SharedAccessKey=lpcspL47uq6QF90YiAbXi8S0WLAKY95Szn2XLL3ifCY=;EntityPath=cdceh
+        checkpoint-storage-account: cdcfunctionstorage
+        checkpoint-access-key: ToIO5vRMPCL6OpNn4uSUonJp3lo1O9rnU3ojNboQBAQYcxhIFNtPHiNyAqsUvsizi3VA3KoXejniXCGEJeJ4hA==
+        checkpoint-container: cdcpoc
+
+    stream:
+      bindings:
+        consume-in-0:
+          destination: cdceh
+          group: $Default
+        supply-out-0:
+          destination: cdceh
+
+      eventhub:
+        bindings:
+          consume-in-0:
+            consumer:
+              checkpoint-mode: MANUAL
+      function:
+        definition: consume;
+      poller:
+        initial-delay: 0
+        fixed-delay: 1000
+
+
+  data:
+    mongodb:
+          uri: mongodb://cdc-poc:DXLNn3l84IyxLDHpB4IfrAGr9EXVsYlpWJwXHkaBoNubSo2GY0Wx7L9U9VyWM7BPZlkmuLtSWfgdhC1KhUbrGA==@cdc-poc.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@cdc-poc@
+          database: EmployeeCDCDB
+server:
+      port: 9091
+
+
+azure:
+  application-insights:
+    instrumentation-key: b23e0dcd-6909-4d0f-9d1c-b488887f554f
+
+
