@@ -29,7 +29,7 @@ spring:
 
   data:
     mongodb:
-          uri: mongodb://cdc-poc:DXLNn3l84IyxLDHpB4IfrAGr9EXVsYlpWJwXHkaBoNubSo2GY0Wx7L9U9VyWM7BPZlkmuLtSWfgdhC1KhUbrGA==@cdc-poc.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@cdc-poc@
+          uri: mongodb://cdcdemo-cosmosdb:ZlXSptMM9YOyYvjNjpTCv6FThdRbOweopfVD0RWEVQOXcTIfVAZvIGXI68RLp3opLXBLvFzj3N8TGLl8UiAxqg==@cdcdemo-cosmosdb.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cdcdemo-cosmosdb@
           database: EmployeeCDCDB
 server:
   port: 9091
